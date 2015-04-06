@@ -1,0 +1,60 @@
+--Refactors
+unmake payroll singleton
+override toString() Hashcode() and equals() in employee
+#Improve employee constructor message error.
+change raise test name to throw
+eliminate if-else-condtions base on paymentStrategy. Use delegation/Strategy.
+
+###Modifiers
+#add list of sales to commisionModifier when a sale is created to emp is actually add to commission
+#add set of modifiers to emp
+#create interface salesReceiptconsumer and add to commisionModifiers
+#create interface TimeCardconsumer and add to houlyWorkJourne
+# validate null addtion modifier lists
+# return immutable object for both salesReceipt and timeCard creation
+# add unionStorage to payroll constructor
+# add validation when adding name and address in employeee
+
+TESTS-BEHAVIORS
+
+shouldNotAddNullEmployee
+shouldNotRetrieveNullEmployee
+
+shouldCreateTimecards
+	hourlyEmployeeShouldBeAbleToAddTimeCards
+	shouldThrowExceptionWhenTimeCardEmployeeIsNotHourly
+	shouldThrowExceptionWhenTimeCardIsNotWellStructured
+
+shouldCreateSalesReceipts
+	comissionedEmployeeShouldBeAbleToAddSalesReceipts
+	shouldThrowExceptionWhenSaleReceiptEmployeeIsNotComissioned
+	shouldThrowExceptionWhenSaleReceiptIsNotWellStructured
+	shouldRaiseExceptionWhenCommisionEmployeeHasNegativeCommissionRate
+
+shouldCreateUnionServiceCharge
+	shouldCreateUnionMember
+	shouldThrowExceptionWhenUnionMemberNotExist
+	shouldDeduceUnionChargeFromEmployeePayment
+
+shouldCreatePaymentMode
+	shouldPayByPaycheck
+	shouldPayByBankAccount
+	shouldPayByPostalService
+
+shouldPayAllEmployeesOnDay
+	shouldPayEmployeesWithSelectedPaymentMode
+	shouldDedecuceModifiersFromEmployeePayment
+	shouldPayRigthSalaryForMonthlyEmployee
+	shouldPayRigthSalaryForHourlyEmployee
+	
+shouldChangeEmployee
+	shouldChangeEmployeWorkJourney
+	shouldChangeEmployeHourlyRate
+	shouldChangeEmployeSalary
+	shouldChangeEmployeName
+	shouldChangeEmployeAddress
+	shouldChangeEmployePaymentMode
+	shouldAddEmployeToUnion
+	shouldRemoveEmployFromUnion
+
+
